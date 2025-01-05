@@ -67,9 +67,16 @@ for (item of myLibrary){
 
     book.appendChild(bookTitle);
     book.appendChild(author);
-    book.appendChild(pages)
+    book.appendChild(pages);
 
 
 
-    bookContainer.appendChild(book)
+    bookContainer.appendChild(book);
 }
+
+
+const addBook = document.querySelector(".addBook");
+const bookDialog = document.querySelector(".bookDialog");
+
+
+addBook.addEventListener("click", ()=> bookDialog.showModal())

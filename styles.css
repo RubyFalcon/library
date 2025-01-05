@@ -175,3 +175,27 @@
     align-items: start;
     gap: .4rem;
   }
+
+  .bookDialog {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    border-radius: 1rem;
+    border: none;
+    padding: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1rem;
+    
+  }
+
+  form input {
+    border: none;
+    background-color: var(--main-color);
+    border-radius: .2rem;
+    outline: none;
+  }
