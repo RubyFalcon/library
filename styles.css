@@ -2,7 +2,7 @@
     --main-color : #e5e9f1;
     --header-color: #ff4c05;
     --white: #ffffff;
-    --yellow: #ffa805;
+    --yellow: #ff8a05;
     --fast-transition: all 0.15s ease-out;
     --base-transition: all 0.3s  ease-out;
     
@@ -149,6 +149,23 @@
     align-items: center;
     padding: 2rem;
    
+  }
+
+ button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: .5rem 1rem;
+    outline: none;
+    border:none;
+    background-color: var(--header-color);
+    color: white;
+    border-radius: 2rem;
+
+  }
+
+  button:hover {
+    background-color:  var(--yellow);
   }
 
   .flex {
