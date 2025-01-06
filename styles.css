@@ -184,6 +184,11 @@
     border: none;
     padding: 2rem;
   }
+  dialog:-internal-dialog-in-top-layer::backdrop {
+    position: fixed;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.2);
+}
 
   form {
     display: flex;
@@ -192,10 +197,23 @@
     padding: 1rem;
     
   }
+  form h4 {
+    text-align: center;
+    font-size: 1.3rem;
+  }
 
   form input {
     border: none;
     background-color: var(--main-color);
-    border-radius: .2rem;
+    border-radius: .5rem;
     outline: none;
+    padding: .5rem;
+  }
+
+  button[type="submit"] {
+    background-color: rgb(4, 173, 4);
+  }
+
+  button[type="submit"]:hover {
+    background-color: rgb(4, 221, 4);
   }
