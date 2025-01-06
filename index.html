@@ -32,6 +32,21 @@
                     <input type="text" placeholder="Name"  id="name" required>
                     <input type="text" placeholder="Author"  id="author" required>
                     <input type="number" placeholder="Pages" id="pages" required>
+                    <input type="number" placeholder="rating out of 5" id="rating" required>
+                    <fieldset>
+                        <legend>Have you read this book?</legend>
+                        <div class="readBook">
+                            <div class="yes">
+                                <input type="radio" name="read" id="read" value="yes">
+                                <label for="read">Yes</label>
+                            </div>
+                            <div class="no">
+                                <input type="radio" name="read" id="notRead" value="no">
+                                <label for="read">No</label>
+                            </div>
+                        </div>
+                       
+                    </fieldset>
                     <button type="submit" id="submit">Submit</button>
                 </form>
             </dialog>

@@ -90,6 +90,7 @@
     margin-left: 3rem;
     gap: .7rem;
   }
+  
 
   .github {
     margin-right: 2rem;
@@ -169,13 +170,16 @@
     
   }
 
-  button.delete {
+  button.delete, button.read, button.notRead {
     width: 80%;
     align-self: center;
     padding: .2rem;
     border-radius: 1rem;
-    background-color: #ff0000;
     margin-top: 1rem;
+}
+
+  button.delete, button.notRead {
+    background-color: #ff0000;
 }
   button:hover {
     background-color:  var(--yellow);
@@ -222,8 +226,17 @@
     outline: none;
     padding: .5rem;
   }
+  fieldset {
+    outline: none;
+    border: none;
+  }
 
-  button[type="submit"] {
+ .readBook {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  button[type="submit"] ,  button.read {
     background-color: rgb(4, 173, 4);
   }
 

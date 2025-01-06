@@ -1,13 +1,15 @@
 const myLibrary  = [];
 
-function Book(title, author, pages) {
+function Book(title, author, pages, rating, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.rating = rating;
+    this.read = read
 }
 
-function addBookToLibrary(title, author, pages){
-    const newBook = new Book(title, author, pages);
+function addBookToLibrary(title, author, pages, rating, read){
+    const newBook = new Book(title, author, pages, rating , read);
     myLibrary.push(newBook);
 }
 
@@ -57,7 +59,31 @@ function displayBook () {
         pages.appendChild(pagesHeading);
         pages.appendChild(pagesText);
     
-    
+        const rating = document.createElement("div");
+        rating.className = "rating";
+
+        const ratingHeading = document.createElement("h4");
+        ratingHeading.textContent  = "Rating:";
+
+        const ratingText = document.createElement ("p")
+        ratingText.textContent =  item.rating;
+        rating.appendChild(ratingHeading)
+        rating.appendChild(ratingText);
+
+        const readButton = document.createElement("button");
+        
+        if (item.read) {
+            readButton.textContent= "read";
+            readButton.className = "read";
+
+        }
+        else {
+            readButton.textContent = "not Read";
+            readButton.className = "notRead";
+        }
+
+  
+
         const delButton = document.createElement("button");
         delButton.className = "delete";
         delButton.innerHTML = "remove"
@@ -70,14 +96,28 @@ function displayBook () {
         book.appendChild(bookTitle);
         book.appendChild(author);
         book.appendChild(pages);
+        book.appendChild(rating);
+        book.appendChild(readButton);
         book.appendChild(delButton);
         
-       
+        let index = book.getAttribute("data-")
         
         bookContainer.appendChild(book);
-
+        readButton.addEventListener("click", (e)=>{
+            if(myLibrary[index].read){
+                myLibrary[index].read = false;
+                readButton.textContent = 'not Read';
+                readButton.className = "notRead";
+            }
+            else {
+                myLibrary[index].read = true;
+                readButton.textContent =  "read";
+                readButton.className = "read";
+            }
+            
+        })
         delButton.addEventListener("click", (e)=> {
-            let index = book.getAttribute("data-")
+            
             
             myLibrary.splice(index,1);
             displayBook();
@@ -105,8 +145,12 @@ submitButton.addEventListener("click", (e)=> {
     const name = document.querySelector("input#name");
     const author = document.querySelector("input#author");
     const pages = document.querySelector("input#pages");
+    const rating = document.querySelector("input#rating");
+    const read = document.querySelector("input[name='read']:checked");
+    
 
-    addBookToLibrary(name.value, author.value, parseInt(pages.value));
+    const isRead = (read.value === 'yes')
+    addBookToLibrary(name.value, author.value, parseInt(pages.value), rating.value, isRead);
 
     //reset form
     document.querySelector("#addBook").reset();
