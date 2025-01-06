@@ -15,15 +15,17 @@ function addBookToLibrary(title, author, pages){
 function displayBook () {
     const bookContainer = document.querySelector(".books-container");
     bookContainer.innerHTML = "";
+    let counter = 0;
     for (item of myLibrary){
         const book = document.createElement("div");
         book.className = "book";
-        book.innerHTML= "";
+        book.setAttribute("data-", counter);
+        counter++;
         
         const bookTitle = document.createElement("div");
         bookTitle.className = "book-title flex";
     
-    
+        
         const titleHeading = document.createElement('h4');
         titleHeading.textContent = "Title: "
         const paragraph = document.createElement('p')
@@ -57,7 +59,10 @@ function displayBook () {
         pages.appendChild(pagesText);
     
     
-    
+        const delButton = document.createElement("button");
+        delButton.className = "delete";
+        delButton.innerHTML = "remove"
+
         
     
     
@@ -66,13 +71,21 @@ function displayBook () {
         book.appendChild(bookTitle);
         book.appendChild(author);
         book.appendChild(pages);
-    
-    
-    
+        book.appendChild(delButton);
+        
+       
+        
         bookContainer.appendChild(book);
+
+        delButton.addEventListener("click", (e)=> {
+            let index = book.getAttribute("data-")
+            console.log(index);
+            myLibrary.splice(index,1);
+            displayBook();
+        });
     }
 }
-addBookToLibrary("The lion, the witch and the wardrobe",  "Tupay", 4);
+
 
 
 const bookContainer = document.querySelector(".books-container");
@@ -90,17 +103,22 @@ addBook.addEventListener("click", ()=> bookDialog.showModal())
 const submitButton = document.querySelector("#submit");
 submitButton.addEventListener("click", (e)=> {
     e.preventDefault();
-    console.log(e.value);
     const name = document.querySelector("input#name");
-   
-    
     const author = document.querySelector("input#author");
     const pages = document.querySelector("input#pages");
+
     addBookToLibrary(name.value, author.value, parseInt(pages.value));
-    console.table(myLibrary);
+
+    //reset form
+    document.querySelector("#addBook").reset();
+
+    //propagate page
     displayBook();
+
     bookDialog.close();
 })
+
+
 
 
 
