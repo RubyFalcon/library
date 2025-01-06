@@ -7,7 +7,6 @@ function Book(title, author, pages) {
 }
 
 function addBookToLibrary(title, author, pages){
-    console.log("new book added");
     const newBook = new Book(title, author, pages);
     myLibrary.push(newBook);
 }
@@ -79,7 +78,7 @@ function displayBook () {
 
         delButton.addEventListener("click", (e)=> {
             let index = book.getAttribute("data-")
-            console.log(index);
+            
             myLibrary.splice(index,1);
             displayBook();
         });

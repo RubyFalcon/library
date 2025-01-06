@@ -69,7 +69,7 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 1fr 7fr;
+    grid-template-rows: minmax(13vh, 1fr) 7fr;
     
   }
 
