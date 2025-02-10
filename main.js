@@ -73,7 +73,8 @@ function displayBook() {
     ratingText.textContent = `${stars}`;
     rating.appendChild(ratingHeading);
     rating.appendChild(ratingText);
-
+    const buttons = document.createElement("div");
+    buttons.className = "buttons";
     const readButton = document.createElement("button");
 
     if (item.read) {
@@ -87,13 +88,8 @@ function displayBook() {
     const delButton = document.createElement("button");
     delButton.className = "delete";
     delButton.innerHTML = "remove";
-
-    book.appendChild(bookTitle);
-    book.appendChild(author);
-    book.appendChild(pages);
-    book.appendChild(rating);
-    book.appendChild(readButton);
-    book.appendChild(delButton);
+    buttons.append(readButton, delButton);
+    book.append(bookTitle, author, pages, rating, buttons);
 
     let index = book.getAttribute("data-");
 

@@ -1,6 +1,7 @@
 :root {
   --main-color: #e5e9f1;
   --header-color: #ff4c05;
+  --input-color: #f3f7ff;
   --white: #ffffff;
   --yellow: #ff8a05;
   --fast-transition: all 0.15s ease-out;
@@ -213,7 +214,7 @@ button:hover {
   left: 45%;
   border-radius: 1rem;
   border: none;
-  padding: 2rem;
+  padding: 1rem;
 }
 dialog:-internal-dialog-in-top-layer::backdrop {
   position: fixed;
@@ -234,10 +235,10 @@ form h4 {
 
 form input {
   border: none;
-  background-color: var(--main-color);
+  background-color: var(--input-color);
   border-radius: 0.5rem;
   outline: none;
-  padding: 0.5rem;
+  padding: 0.3rem;
 }
 fieldset {
   outline: none;
@@ -251,9 +252,35 @@ fieldset {
 }
 button[type="submit"],
 button.read {
+  margin: 0 auto;
   background-color: rgb(4, 173, 4);
+  padding: 0 0.5em;
 }
 
 button[type="submit"]:hover {
   background-color: rgb(4, 221, 4);
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.5em;
+}
+
+.buttons button {
+  padding: 0;
+  margin: 0;
+  width: 45%;
+}
+
+.add-Book input:invalid {
+  border: 1px solid #900;
+  background-color: #fdd;
+}
+
+.add-Book input:focus:invalid {
+  border: none;
 }
