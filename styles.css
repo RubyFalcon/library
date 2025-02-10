@@ -1,245 +1,259 @@
 :root {
-    --main-color : #e5e9f1;
-    --header-color: #ff4c05;
-    --white: #ffffff;
-    --yellow: #ff8a05;
-    --fast-transition: all 0.15s ease-out;
-    --base-transition: all 0.3s  ease-out;
-    
+  --main-color: #e5e9f1;
+  --header-color: #ff4c05;
+  --white: #ffffff;
+  --yellow: #ff8a05;
+  --fast-transition: all 0.15s ease-out;
+  --base-transition: all 0.3s ease-out;
 }
 
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  
-  /* 2. Remove default margin */
-  * {
-    margin: 0;
-  }
-  
-  body {
-    /* 3. Add accessible line-height */
-    line-height: 1.5;
-    /* 4. Improve text rendering */
-    -webkit-font-smoothing: antialiased;
-    height: 100vh;
-    font-family: 'Roboto' , sans-serif;
-
-  }
-  
-  /* 5. Improve media defaults */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  
-  /* 6. Inherit fonts for form controls */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  
-  /* 7. Avoid text overflows */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  
-  /* 8. Improve line wrapping */
-  p {
-    text-wrap: pretty;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-  }
-  a, a *, button, button * {
-    cursor: pointer;
-    transition: var(--fast-transition);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-  /*
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--main-color);
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+a,
+a *,
+button,
+button * {
+  cursor: pointer;
+  transition: var(--fast-transition);
+}
+/*
     9. Create a root stacking context
   */
-  #root, #__next {
-    isolation: isolate;
-  }
-
-
-
-
-  .grid-layout {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-rows: minmax(13vh, 1fr) 7fr;
-    
-  }
-
-  header {
-    background-color: var(--white);
-    display:  flex;
-    justify-content: space-between;
-    align-items: center;
-    
-  }
-  
-
-  .title , .github {
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-left: 3rem;
-    gap: .7rem;
-  }
-  
-
-  .github {
-    margin-right: 2rem;
-  }
-
-  .title h1 {
-    font-size: 2rem;
-  }
-  main {
-    background-color: var(--main-color);
-    box-shadow: inset -1px 4px 10px 0px #d9d1d1;
-  }
-
-  
-  svg {
-    height: 2.5rem;
-    width: 2.5rem;  
-  }
-
-  .github svg path {
-    fill: var(--header-color);
-  }
-  a:hover svg {
-    transform:rotate(360deg) scale(1.5);
-    filter: drop-shadow(0 0 0.3em var(--yellow));
-  }
-
-  a:hover svg path {
-    fill: var(--yellow);
-  }
-  a svg{
-    transition: var(--base-transition);
-    
-  }
-
-  .books-container {
-    margin: 5rem auto;
-    width: 90%;
-    height: 90%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    
-    gap: 1rem;
-  }
-
-
-  .book {
-    margin: 2rem;
-    background-color: var(--white);
-    border-radius: 0.7rem;
-    box-shadow: -1px 4px 10px 0px #d9d1d1;
-    position: relative;
-    top: 0;
-    display:  flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding: 2rem;
-   
-  }
-
- button {
-    display: block;
-    padding: .5rem 1rem;
-    outline: none;
-    border:none;
-    background-color: var(--header-color);
-    color: white;
-    border-radius: 2rem;
-
-  }
-
-  button.addBook {
-    margin: 0 auto;
-    margin-top: 3rem;
-    
-  }
-
-  button.delete, button.read, button.notRead {
-    width: 80%;
-    align-self: center;
-    padding: .2rem;
-    border-radius: 1rem;
-    margin-top: 1rem;
+#root,
+#__next {
+  isolation: isolate;
 }
 
-  button.delete, button.notRead {
-    background-color: #ff0000;
-}
-  button:hover {
-    background-color:  var(--yellow);
-  }
-
-  .flex {
-    display:  flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    gap: .4rem;
-  }
-
-  .bookDialog {
-    position: absolute;
-    top: 40%;
-    left: 45%;
-    border-radius: 1rem;
-    border: none;
-    padding: 2rem;
-  }
-  dialog:-internal-dialog-in-top-layer::backdrop {
-    position: fixed;
-    inset: 0px;
-    background: rgba(0, 0, 0, 0.2);
+.grid-layout {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: minmax(13vh, 1fr) 7fr;
 }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 1rem;
-    
-  }
-  form h4 {
-    text-align: center;
-    font-size: 1.3rem;
-  }
+header {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  form input {
-    border: none;
-    background-color: var(--main-color);
-    border-radius: .5rem;
-    outline: none;
-    padding: .5rem;
-  }
-  fieldset {
-    outline: none;
-    border: none;
-  }
+.title,
+.github {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 3rem;
+  gap: 0.7rem;
+}
 
- .readBook {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
-  button[type="submit"] ,  button.read {
-    background-color: rgb(4, 173, 4);
-  }
+.github {
+  margin-right: 2rem;
+}
 
-  button[type="submit"]:hover {
-    background-color: rgb(4, 221, 4);
-  }
+.title h1 {
+  font-size: 2rem;
+}
+main {
+  box-shadow: inset -1px 4px 10px 0px #d9d1d1;
+}
+
+svg {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.github svg path {
+  fill: var(--header-color);
+}
+a:hover svg {
+  transform: rotate(360deg) scale(1.5);
+  filter: drop-shadow(0 0 0.3em var(--yellow));
+}
+
+a:hover svg path {
+  fill: var(--yellow);
+}
+a svg {
+  transition: var(--base-transition);
+}
+
+.books-container {
+  margin: 5rem auto;
+  width: 90%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  gap: 1rem;
+}
+
+.book {
+  margin: 2rem;
+  min-width: 20rem;
+  background-color: var(--white);
+  border-radius: 0.7rem;
+  box-shadow: -1px 4px 10px 0px #d9d1d1;
+  position: relative;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 2rem;
+}
+
+button {
+  display: block;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  background-color: var(--header-color);
+  color: white;
+  border-radius: 2rem;
+}
+
+button.addBook {
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+button.delete,
+button.read,
+button.notRead {
+  width: 80%;
+  align-self: center;
+  padding: 0.2rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+button.delete,
+button.notRead {
+  background-color: #ff0000;
+}
+button:hover {
+  background-color: var(--yellow);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0.4rem;
+}
+
+.bookDialog {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  border-radius: 1rem;
+  border: none;
+  padding: 2rem;
+}
+dialog:-internal-dialog-in-top-layer::backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1rem;
+}
+form h4 {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+form input {
+  border: none;
+  background-color: var(--main-color);
+  border-radius: 0.5rem;
+  outline: none;
+  padding: 0.5rem;
+}
+fieldset {
+  outline: none;
+  border: none;
+}
+
+.readBook {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+button[type="submit"],
+button.read {
+  background-color: rgb(4, 173, 4);
+}
+
+button[type="submit"]:hover {
+  background-color: rgb(4, 221, 4);
+}
